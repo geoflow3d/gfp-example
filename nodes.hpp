@@ -55,7 +55,7 @@ class NumberNode:public Node {
 
   void init() {
     add_output("result", typeid(int));
-    add_param("number_value", ParamInt(value));
+    add_param("number_value", ParamInt(value, "Number value"));
   }
   
   void process() {
