@@ -64,14 +64,3 @@ class NumberNode:public Node {
     std::cout << "end NumberNode::process()" << "\n";
   }
 };
-
-void register_nodes(NodeRegister& node_register) {
-  node_register.register_node<AdderNode>("Adder");
-  node_register.register_node<NumberNode>("Number");
-}
-
-NodeRegisterHandle create_register() {
-  auto R = NodeRegister::create(GF_PLUGIN_NAME);
-  register_nodes(*R);
-  return R;
-}
