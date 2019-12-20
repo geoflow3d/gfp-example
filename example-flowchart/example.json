@@ -1,0 +1,39 @@
+{
+  "nodes": {
+    "Adder-m8oqz1": {
+      "position": [
+        333.0,
+        102.0
+      ],
+      "type": [
+        "ExampleNodes",
+        "Adder"
+      ]
+    },
+    "Number-0hoqrb": {
+      "connections": {
+        "result": [
+          [
+            "Adder-m8oqz1",
+            "in1"
+          ],
+          [
+            "Adder-m8oqz1",
+            "in2"
+          ]
+        ]
+      },
+      "parameters": {
+        "number_value": 21
+      },
+      "position": [
+        149.0,
+        120.0
+      ],
+      "type": [
+        "ExampleNodes",
+        "Number"
+      ]
+    }
+  }
+}
