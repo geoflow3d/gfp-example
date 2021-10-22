@@ -21,46 +21,58 @@
 
 using namespace geoflow;
 
-class AdderNode:public Node {
-  public:
+class AdderNode : public Node
+{
+public:
   using Node::Node;
 
-  void init() {
+  void init()
+  {
     add_input("in1", typeid(int));
     add_input("in2", typeid(int));
     add_output("result", typeid(int));
   }
 
-  std::string info() {
+  std::string info()
+  {
     std::string s;
     if (output("result").has_data())
       s = std::to_string(output("result").get<int>());
     return s;
   }
 
-  void process() {
-    std::cout << "begin AddderNode::process()" << "\n";
+  void process()
+  {
+    std::cout << "begin AddderNode::process()"
+              << "\n";
     auto in1 = input("in1").get<int>();
     auto in2 = input("in2").get<int>();
     std::this_thread::sleep_for(std::chrono::microseconds(200));
-    output("result").set(int(in1+in2));
-    std::cout << "end AddderNode::process()" << "\n";
+    output("result").set(int(in1 + in2));
+    std::cout << "end AddderNode::process()"
+              << "\n";
   }
 };
 
-class NumberNode:public Node {
-  int value=21;
-  public:
+class NumberNode : public Node
+{
+  int value = 21;
+
+public:
   using Node::Node;
 
-  void init() {
+  void init()
+  {
     add_output("result", typeid(int));
-    add_param("number_value", ParamInt(value, "Number value"));
+    add_param(ParamInt(value, "number_value", "Number value"));
   }
-  
-  void process() {
-    std::cout << "begin NumberNode::process()" << "\n";
+
+  void process()
+  {
+    std::cout << "begin NumberNode::process()"
+              << "\n";
     output("result").set(int(value));
-    std::cout << "end NumberNode::process()" << "\n";
+    std::cout << "end NumberNode::process()"
+              << "\n";
   }
 };
